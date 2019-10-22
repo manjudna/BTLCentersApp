@@ -1,0 +1,40 @@
+
+ 
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    
+    <mat-table matSort [dataSource]="dataSource"  class="mat-elevation-z8">
+      
+        <ng-container matColumnDef="Id">
+            <mat-header-cell *matHeaderCellDef> Exam Center Id </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Id}} </mat-cell>
+          </ng-container>
+     
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="Code">
+        <mat-header-cell *matHeaderCellDef> Postal Code </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Code}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="CountryName">
+          <mat-header-cell *matHeaderCellDef> Country Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.CountryName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="OwnerName">
+            <mat-header-cell *matHeaderCellDef> Owner Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.OwnerName}} </mat-cell>
+          </ng-container>
+     
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    
+    <mat-paginator [pageSizeOptions]="[2, 10, 20]" showFirstLastButtons></mat-paginator>   
+   
